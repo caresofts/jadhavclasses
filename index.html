@@ -8,60 +8,65 @@
 <link rel="stylesheet" href="./style.css">
 
 </head>
-<STYLE>body {
+<STYLE>A {text-decoration: none;} 
+
+body {
     margin: 0;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-   ;
+    background: cornsilk;
 }
 
-ul {
-    padding: 0;
-    list-style-type: none;
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
 }
 
-ul li {
-    box-sizing: border-box;
-    width: 15em;
-    height: 3em;
-    font-size: 20px;
-    border-radius: 0.5em;
-    margin: 0.5em;
-    box-shadow: 0 0 1em rgba(0,0,0,0.2);
-    color: white;
-    font-family: sans-serif;
-    text-transform: capitalize;
-    line-height: 3em;
-    transition: 0.3s;
-    cursor: pointer;
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+.active {
+  background-color: #717171;
 }
 
-ul li:nth-child(odd) {
-    background: linear-gradient(to right, orange, tomato);
-    text-align: left;
-    padding-left: 10%;
-    transform: perspective(500px) rotateY(45deg);
+
+
+
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
-ul li:nth-child(even) {
-    background: linear-gradient(to left, orange, tomato);
-    text-align: right;
-    padding-right: 10%;
-    transform: perspective(500px) rotateY(-45deg);
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
-ul li:nth-child(odd):hover {
-    transform: perspective(200px) rotateY(45deg);
-    padding-left: 5%;
-}
 
-ul li:nth-child(even):hover {
-    transform: perspective(200px) rotateY(-45deg);
-    padding-right: 5%;
-}
-a {text-decoration: none;} 
 </STYLE>
 <body>
 <!-- partial:index.partial.html -->
@@ -73,7 +78,8 @@ a {text-decoration: none;}
       <!-- ACTUAL NAVIGATION MENU -->
       <ul class="nav__menu" id="menu" tabindex="-1" aria-label="main navigation" hidden>
         <li class="nav__item"><a href="./index.html" class="nav__link">Home</a></li>
-     <li class="nav__item"><a href="https://forms.gle/NvegRtyAvUGQXWFj7" class="nav__link">Register for lestest Update</a></li>
+		<li class="nav__item"><a href="https://www.youtube.com/channel/UCJyIZj165Ve_IQ3gmt0V-vA/videos" class="nav__link">Youtube & LIVE</a></li>
+    
         <li class="nav__item"><a href="PP.html" class="nav__link"> Privacy Policy </a></li><br /><br />
 		<a href="#"  class="nav__item" class="nav__link"><center><img src="src/ic.png"  style= "border-radius: 15px " " box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" width="100" height="100"></center></a>
       </ul>
@@ -99,23 +105,73 @@ a {text-decoration: none;}
     
   </header>
 
-<a href="#" ><center><img src="src/hh.png" style= "border-radius: 15px "  width="300" height="200"></center></a>
-  
-  <!-- DEMO CONTENT -->
-  <main class="main" role="main">
-    
-      <ul>
-	     
-		    <li><a href="set/01.html">10th (SSC) Result</li></a>
-          <li><a href="set/NeetAipmt.html">12th (HSC) Result</li></a>
-          <li><a href="set/02.html">Other Result</li></a>
-		 
-       
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+
+  <img src="mj.jpg" style="width:100%">
  
-</ul>
-   
-  </main>
 </div>
+
+<div class="mySlides fade">
+ 
+  <img src="mb1.jpg" style="width:100%">
+ 
+</div>
+
+<div class="mySlides fade">
+ 
+  <img src="mb2.jpg" style="width:100%">
+
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); //Change image every 2 seconds
+}
+</script>
+<br>
+
+
+  
+ 
+<button><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOdop-FISNmjYY5n7QVe2oa8G4riPtXxGwQa86nsbUnBpZwA/viewform?usp=sf_link" class="button">Registration Form</a></button>
+<br>
+<button><a href="set/01.html" class="button">CET & JEE Notes</a></button>
+<br>
+<button><a href="exam.html" class="button">Exam</a></button>
+<br>
+<button><a href="Hw.html" class="button">Daily Assingment </a></button>
+<br>
+<button><a href="https://drive.google.com/drive/folders/17inCDn3X6Cbf3SNaYFpxDVF3KBzVP3P7?usp=sharing" class="button">11th/12th Notes</a></button>
+
+
+
 <!-- partial -->
   <script  src="./script.js"></script>
 
