@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Animated Accessible Navigation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<STYLE>A {text-decoration: none;} 
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: cornsilk;
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+.active {
+  background-color: #717171;
+}
+
+
+
+
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+</STYLE>
+<body>
+<!-- partial:index.partial.html -->
+
+  <header class="header" role="banner">
+    
+    <nav id="nav" class="nav" role="navigation">
+      
+      <!-- ACTUAL NAVIGATION MENU -->
+      <ul class="nav__menu" id="menu" tabindex="-1" aria-label="main navigation" hidden>
+        <li class="nav__item"><a href="./index.html" class="nav__link">Home</a></li>
+    
+        <li class="nav__item"><a href="PP.html" class="nav__link"> Privacy Policy </a></li><br /><br />
+		<a href="#"  class="nav__item" class="nav__link"><center><img src="src/ic.png"  style= "border-radius: 15px " " box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" width="100" height="100"></center></a>
+      </ul>
+      
+      <!-- MENU TOGGLE BUTTON -->
+      <a href="#nav" class="nav__toggle" role="button" aria-expanded="false" aria-controls="menu">
+        <svg class="menuicon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+          <title>Toggle Menu</title>
+          <g>
+            <line class="menuicon__bar" x1="13" y1="16.5" x2="37" y2="16.5"/>
+            <line class="menuicon__bar" x1="13" y1="24.5" x2="37" y2="24.5"/>
+            <line class="menuicon__bar" x1="13" y1="24.5" x2="37" y2="24.5"/>
+            <line class="menuicon__bar" x1="13" y1="32.5" x2="37" y2="32.5"/>
+            <circle class="menuicon__circle" r="23" cx="25" cy="25" />
+          </g>
+        </svg>
+      </a>
+      
+      <!-- ANIMATED BACKGROUND ELEMENT -->
+      <div class="splash"></div>
+      
+    </nav>
+    
+  </header>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+
+  <img src="mj.jpg" style="width:100%">
+ 
+</div>
+
+<div class="mySlides fade">
+ 
+  <img src="mb1.jpg" style="width:100%">
+ 
+</div>
+
+<div class="mySlides fade">
+ 
+  <img src="mb2.jpg" style="width:100%">
+
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); //Change image every 2 seconds
+}
+</script>
+<br>
+
+
+  
+ 
+<button><a href="https://docs.google.com/forms/d/e/1FAIpQLSeOdop-FISNmjYY5n7QVe2oa8G4riPtXxGwQa86nsbUnBpZwA/viewform?usp=sf_link" class="button">Registration Form</a></button>
+<br>
+<button><a href="set/01.html" class="button">CET MCQ TEST</a></button>
+<br>
+<button><a href="google.com" class="button">JEE MCQ TEST</a></button>
+<br>
+<button><a href="Hw.html" class="button">Other Exam</a></button>
+
+
+
+
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
